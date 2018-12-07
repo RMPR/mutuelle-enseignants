@@ -1,16 +1,12 @@
-
-
-
-
 ## 1. Diagramme de cas d'utilisation
 
 ### 1.1. Description des acteurs
 
-	#### 	a. Administrateur
+#### 	a. Administrateur
 
 ​		L'administrateur dans notre système est l'entité chargée d'ajouter, de supprimer, de créer, de modifier er de rechercher les informations proposées par l'application (telles que les informations sur les membres, l'état de la caisse, les contributions des membres, ...).
 
-#### 	b. Invité (Enseignant)
+#### 		b. Invité (Enseignant)
 
 ​		L'invité est ici une entité capable de consulter les informations proposées par l'application sans toute fois la possibilité de les modifier.
 
@@ -20,18 +16,30 @@
 
 #### a. Ajout d'un membre
 
-- <b>Objectifs</b>  : inscrire un membre à la mutuelle d'un enseignant
-- <b>Acteur concerné </b> : Administrateur ()
-- **Pré-condition**
-- **Scénario nominal**
+- <b>Objectifs</b>  : inscrire un membre à la mutuelle d'un enseignant.
+
+- <b>Acteur concerné </b> : Administrateur.
+
+- **Pré-condition**: l'administrateur doit être authentifié à l'avance.
+
+- **Scénario nominal** : 
+
+  <ol>
+      
+  </ol>
+
 - **Scénario alternatif**
 
-	#### b. Gestion des épargnes
+  #### b. Gestion des épargnes
 
 - **Objectifs **: 
+
 - **Acteur concerné**
+
 - **Pré-condition**
+
 - **Scénario nominal**
+
 - **Scénario alternatif**
 
 #### 	c. Gestion des emprunts
