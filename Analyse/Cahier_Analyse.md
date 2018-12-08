@@ -68,6 +68,8 @@
 
     L'administrateur clique sur confirmer pour confirmer le retrait.
 
+    L'application effectue l'opération et génère une fiche de retrait.
+
 - **Scénario alternatif** :
 
   - *Dans le cas où l'administrateur saisie une donnée erronée*, l'application renvoie une erreur et le redirige vers la même page afin qu'il puisse tenter de nouveau.
@@ -85,25 +87,57 @@
 
   L'application présente à l'administrateur une liste des membres.
 
-   
+   L'administrateur cherche parmi les membres un en particulier. 
 
-- **Scénario alternatif**
+  L'application propose un formulaire pour mentionner la somme à emprunter.
+
+  L'administrateur saisie une somme et valide en cliquant sur un bouton de confirmation.
+
+  L'application effectue l'opération.
+
+- **Scénario alternatif** :
+
+  Dans le cas où l'administrateur ferme accidentellement la page sans toute fois avoir confirmer, les modifications ne seront pas prises en compte par l'application.
 
 #### 	d. Gestion des remboursements
 
-- **Objectifs** :
-- **Acteur concerné** :
-- **Pré-condition** :
+- **Objectifs** : Permettre à un membre de rembourser ses emprunts.
+
+- **Acteur concerné** : Administrateur.
+
+- **Pré-condition** : L'administrateur doit s'être authentifié au préalable.
+
 - **Scénario nominal** : 
-- **Scénario alternatif**
+
+  L'application présente une interface à l'administrateur contenant une liste des membres.
+
+  L'administrateur recherche et sélectionne un membre en particulier parmi la liste des membres.
+
+  L'application présente un formulaire à propos du montant à entrer à l'administrateur ainsi que le montant qu'il doit.
+
+  L'administrateur saisie les informations nécessaires puis valide en cliquant sur un bouton de confirmation.
+
+  L'application effectue l'opération.
+
+- **Scénario alternatif** : 
+
+  Dans le cas où le montant à rembourser est nul et que l'administrateur rentre quand même une somme, l'application lui renvoie un message d'erreur.
 
 #### 	e. Gestion fond social
 
-- **Objectifs**
-- **Acteur concerné**
-- **Pré-condition**
-- **Scénario nominal**
-- **Scénario alternatif**
+- **Objectifs** : Permettre de d'apporter un soutien financier aux membres en cas d'évènements (ou de circonstances) particulières.
+
+- **Acteur concerné** : Administrateur.
+
+- **Pré-condition** : L'administrateur doit s'être authentifié au préalable.
+
+- **Scénario nominal** : 
+
+  L'application propose un ensemble de choix (types d'évènements).
+
+  L'administrateur en choisit un et confirme.
+
+  L'application effectue l'opération.
 
 #### 	f. Modifier les paramètres de l'application
 
@@ -139,9 +173,11 @@
 
 - **Scénario nominal** : 
 
-  - L'application propose à l'acteur une page d'authentification
-  - L'acteur saisie ses informations
-  - L'application renvoie l'acteur à la page principale.
+  L'application propose à l'acteur une page d'authentification.
+
+  L'acteur saisie ses informations.
+
+  L'application renvoie l'acteur à la page principale.
 
 - **Scénario alternatif** : 
 
@@ -157,8 +193,9 @@
 
 - **Scénario nominal** : 
 
-  - L'acteur clique sur le bouton de déconnexion.
-  - L'application déconnecte l'acteur courant et le renvoie à la page d'authentification (en ce qui concerne l'administrateur, on enregistre les paramètres de l'application).  
+  L'acteur clique sur le bouton de déconnexion.
+
+  L'application déconnecte l'acteur courant et le renvoie à la page d'authentification (en ce qui concerne l'administrateur, on enregistre les paramètres de l'application).  
 
 - **Scénario alternatif** : 
 
@@ -166,7 +203,22 @@
 
   L'application déconnecte automatiquement l'acteur courant.
 
+#### i. Consulter les informations
+
+- **Objectifs** : Permettre à un membre de consulter ses informations.
+
+- **Acteur concerné** : Invités
+
+- **Pré-condition** : Il faut que l'invité soit au préalable authentifié.
+
+- **Scénario nominal** : 
+
+  L'application propose à l'invité un ensemble d'informations.
+
+  L'invité sélectionne la rubrique qui l'intéresse.  
+
+
 ### 1.3. <u>Diagramme</u>
 
-
+![Diagrammes_UML-DCU](C:\Users\SCrf1\Desktop\projet IHM\mutuelle-enseignants\Analyse\Diagrammes_UML-DCU.png)
 
