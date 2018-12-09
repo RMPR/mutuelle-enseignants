@@ -1,3 +1,7 @@
+
+
+# I. Analyse
+
 ## 1. Diagramme de cas d'utilisation
 
 ### 1.1. <u>Description des acteurs</u>
@@ -14,7 +18,7 @@
 
 ​	Dans cette partie sont listées les différents cas d'utilisation de l'application accompagnés de leur description.
 
-#### 	a. Ajout d'un membre
+#### 	a. Ajouter un membre
 
 - <b>Objectifs</b>  : inscrire un membre à la mutuelle d'un enseignant.
 
@@ -40,7 +44,7 @@
 
     L'application ne prend pas en compte les modifications qu'il a effectué.
 
-  #### b. Gestion des épargnes
+  #### b. Gérer les épargnes
 
 - **Objectifs **: Ajouter une épargne ou en retirer pour un membre donné.
 
@@ -75,7 +79,7 @@
   - *Dans le cas où l'administrateur saisie une donnée erronée*, l'application renvoie une erreur et le redirige vers la même page afin qu'il puisse tenter de nouveau.
   - *Dans le cas où un membre n'a plus rien dans son compte épargne et que l'administrateur tente d'effectuer un retrait*, l'application renvoie une erreur. 
 
-  #### 	c. Gestion des emprunts
+  #### 	c. Gérer les emprunts
 
 - **Objectifs** : Permettre à un membre donné d'effectuer des emprunts.
 
@@ -97,9 +101,10 @@
 
 - **Scénario alternatif** :
 
-  Dans le cas où l'administrateur ferme accidentellement la page sans toute fois avoir confirmer, les modifications ne seront pas prises en compte par l'application.
+  - Dans le cas où le membre n'est pas autorisé à emprunter (lorsqu'il n'est pas à jour), l'application renvoie à l'administrateur une erreur.
+  - Dans le cas où l'administrateur ferme accidentellement la page sans toute fois avoir confirmer, les modifications ne seront pas prises en compte par l'application.
 
-#### 	d. Gestion des remboursements
+  #### 	d. Gérer les remboursements
 
 - **Objectifs** : Permettre à un membre de rembourser ses emprunts.
 
@@ -123,7 +128,7 @@
 
   Dans le cas où le montant à rembourser est nul et que l'administrateur rentre quand même une somme, l'application lui renvoie un message d'erreur.
 
-#### 	e. Gestion fond social
+#### 	e. Gérer le fond social
 
 - **Objectifs** : Permettre de d'apporter un soutien financier aux membres en cas d'évènements (ou de circonstances) particulières.
 
@@ -163,7 +168,7 @@
 
   Dans le cas où l'administrateur ferme accidentellement la page de configuration sans avoir cliquer sur le bouton de confirmation, l'application ne tiendra pas compte des modifications apportées.
 
-#### 	g. Authentification
+#### 	g. S'authentifier
 
 - **Objectifs** : Permettre aux différents acteurs l'accès à l'application.
 
@@ -183,7 +188,7 @@
 
   L'acteur saisit des informations erronées. L'application lui renvoie la page d'authentification. 
 
-#### 	h. Déconnexion
+#### 	h. Se déconnecter
 
 - **Objectifs** : Déconnecter un utilisateur de l'application.
 
@@ -217,8 +222,23 @@
 
   L'invité sélectionne la rubrique qui l'intéresse.  
 
-
 ### 1.3. <u>Diagramme</u>
 
+
+
 ![Diagrammes_UML-DCU](C:\Users\SCrf1\Desktop\projet IHM\mutuelle-enseignants\Analyse\Diagrammes_UML-DCU.png)
+
+
+
+### 2. Diagrammes d'activité
+
+### 3. Diagrammes de séquences système
+
+
+
+# II. Conception
+
+## 1. Diagramme de séquence technique
+
+## 2. Diagramme de classe
 
