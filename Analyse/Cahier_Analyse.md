@@ -232,13 +232,63 @@
 
 ### 2. Diagrammes d'activité
 
-### 3. Diagrammes de séquences système
+#### 	2.1. Ajouter un membre
 
+#### 	2.2. Gérer les épargnes
 
+#### 	2.3. Gérer les emprunts
+
+#### 	2.4. Gérer les remboursements
+
+#### 	2.5. Gérer le fond social
+
+#### 	2.6. Modifier les paramètres de l'application
+
+#### 	2.7. S'authentifier
+
+#### 	2.8. Se déconnecter
+
+#### 	2.9. Consulter les informations
 
 # II. Conception
 
-## 1. Diagramme de séquence technique
+## 1. Diagramme de séquence
+
+​	Nous utiliserons pour notre application un design pattern MVC afin de mieux structurer notre logique applicative.
+
+#### 1.1. Ajouter un membre
+
+![Diagrammes_UML-Ajout membre](C:\Users\SCrf1\Desktop\projet IHM\mutuelle-enseignants\Analyse\Diagrammes_UML-Ajout membre.png)
+
+#### 1.2. Gérer les épargnes
+
+![Diagrammes_UML-sequence_gestion_epargnes](C:\Users\SCrf1\Desktop\projet IHM\mutuelle-enseignants\Analyse\Diagrammes_UML-sequence_gestion_epargnes.png)
+
+#### 1.3. Gérer les emprunts
+
+![Diagrammes_UML-sequence_gestion_emprunts](C:\Users\SCrf1\Desktop\projet IHM\mutuelle-enseignants\Analyse\Diagrammes_UML-sequence_gestion_emprunts.png)
+
+#### 1.4. Gérer les remboursements
+
+![Diagrammes_UML-sequence_gestion_remboursements](C:\Users\SCrf1\Desktop\projet IHM\mutuelle-enseignants\Analyse\Diagrammes_UML-sequence_gestion_remboursements.png)
+
+#### 1.5. Gérer le fond social
+
+![Diagrammes_UML-sequence_gestion_fond_social](C:\Users\SCrf1\Desktop\projet IHM\mutuelle-enseignants\Analyse\Diagrammes_UML-sequence_gestion_fond_social.png)
+
+#### 1.6. Modifier les paramètres de l'application
+
+![Diagrammes_UML-sequences_gestion_paramètres](C:\Users\SCrf1\Desktop\projet IHM\mutuelle-enseignants\Analyse\Diagrammes_UML-sequences_gestion_paramètres.png)
+
+#### 1.7. S'authentifier
+
+![Diagrammes_UML-sequence_authentification](C:\Users\SCrf1\Desktop\projet IHM\mutuelle-enseignants\Analyse\Diagrammes_UML-sequence_authentification.png)
+
+#### 1.8. Consulter les informations
+
+Il s'agit ici, simplement de l'accès des différents modules de l'application en mode  lecture.
 
 ## 2. Diagramme de classe
+
+![Diagrammes_UML-Page-10](C:\Users\SCrf1\Desktop\projet IHM\mutuelle-enseignants\Analyse\Diagrammes_UML-Page-10.png)
 
