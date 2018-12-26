@@ -29,7 +29,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
+        'brandLabel' => "Mutuelle enseignant",
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -38,9 +38,15 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
+            /*['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+            ['label' => 'Contact', 'url' => ['/site/contact']],*/
+            ['label' => 'Enseignant', 'url' => ['/site/enseignants']],
+            ['label' => 'Emprunts', 'url' => ['/site/emprunts']],
+            ['label' => 'Remboursements', 'url' => ['/site/remboursements']],
+            ['label' => 'Epargnes', 'url' => ['/site/epargnes']],
+            ['label' => 'Fonds sociaux', 'url' => ['/site/fonds']],
+           // ['label' => 'Paramètres', 'url' => ['/site/parametres'], 'icon' => ],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
