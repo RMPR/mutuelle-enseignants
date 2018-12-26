@@ -39,4 +39,9 @@ return [
         ],
     ],
     'params' => $params,
+    'modules' => [
+        'user' => [
+            'class' => 'dektrium\user\Module',
+        ],
+    ],
 ];
