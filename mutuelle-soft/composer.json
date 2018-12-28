@@ -18,7 +18,11 @@
         "yiisoft/yii2": "~2.0.14",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
+<<<<<<< HEAD
+        "yiisoft/yii2-jui" : "~2.0.0"
+=======
         "dektrium/yii2-user": "^0.9.14"
+>>>>>>> 474652e226a6476798416647d965e4589fa430d8
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\enseignant;
+use app\models\AjoutmembreForm;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -9,6 +11,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use yii\web\UploadedFile;
 
 class SiteController extends Controller
 {
@@ -124,5 +127,34 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionAjoutmembre()
+    {
+        $model = new AjoutmembreForm();
+        $enseignant = new Enseignant();
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate())
+        {
+            $model->file = UploadedFile::getInstance($model, 'photo');
+
+            $enseignant->nom = $model->nom;
+            $enseignant->prenom = $model->prenom;
+            $enseignant->email = $model->email;
+            $enseignant->adresse = $model->adresse;
+            $enseignant->photo = 'uploads/' . $model->file->baseName . '.' . $model->file->extension;
+            $enseignant->dateinscription = $model->dateinscription;
+            $enseignant->pass = $model->pass;
+            $enseignant->save();
+
+
+            if ($model->file && $model->validate()) {
+                $model->file->saveAs('uploads/' . $model->file->baseName . '.' . $model->file->extension);
+            }
+
+             Yii::$app->session->setFlash("succes", "Membre ajouté avec succès");
+        }
+        return $this->render('ajoutmembre', ['model' => $model]);
+
     }
 }

@@ -29,8 +29,4 @@ class AppAsset extends AssetBundle
         'yii\bootstrap\BootstrapAsset',
     ];
 
-    public $images = [
-        'images/icon_search.png',
-        'images/icon_settings.png',
-    ];
 }
