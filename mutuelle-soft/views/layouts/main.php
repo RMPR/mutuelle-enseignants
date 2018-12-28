@@ -41,12 +41,12 @@ AppAsset::register($this);
             /*['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],*/
-            ['label' => 'Enseignant', 'url' => ['/site/enseignants']],
+            ['label' => 'Enseignant', 'url' => ['/site/ajoutmembre']],
             ['label' => 'Emprunts', 'url' => ['/site/emprunts']],
             ['label' => 'Remboursements', 'url' => ['/site/remboursements']],
             ['label' => 'Epargnes', 'url' => ['/site/epargnes']],
             ['label' => 'Fonds sociaux', 'url' => ['/site/fonds']],
-           // ['label' => 'Paramètres', 'url' => ['/site/parametres'], 'icon' => ],
+            ['label' => '', 'url' => ['/site/parametres'], 'icon' => '../../web/'],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
