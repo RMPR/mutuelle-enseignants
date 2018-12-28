@@ -13,7 +13,7 @@ nbproject
 Thumbs.db
 
 # composer vendor dir
-/vendor
+mutuelle-soft/vendor
 
 # composer itself is not needed
 composer.phar
@@ -34,3 +34,6 @@ tests/_support/_generated
 
 #database file configuration
 /config/db.php
+
+mutuelle-soft/config/db.php
+mutuelle-soft/vendor
