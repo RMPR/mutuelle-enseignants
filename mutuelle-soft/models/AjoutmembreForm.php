@@ -28,11 +28,13 @@ class AjoutmembreForm extends Model
             ['email', 'required', 'message' => 'Vous n\'avez pas entrer d\'email'],
             ['pass', 'required', 'message' => 'Vous n\'avez pas entrer de mot de passe'],
             ['dateinscription', 'required', 'message' => 'Vous n\'avez pas choisi de date d\'inscription'],
-            ['dateinscription', 'string', 'length' => [6]],
+            ['dateinscription', 'string', 'min' => 4],
             ['adresse', 'required', 'message' => 'Vous n\'avez pas entrer d\'adresse'],
             ['email', 'email'],
-            ['photo','file', 'extensions' => 'png, jpg, gif, PNG'],
-            ['telephone', 'string', 'length' => [5]]
+            ['photo','file', 'extensions' => 'png, jpg, gif, jpeg, PNG, JPG, JPEG, GIF', 'maxSize' => 2048 * 2048],
+            ['telephone', 'string', 'max' => 16, 'message' => 'le numéro de téléphone doit contenir moins de 15 chiffres selon la norme'],
+            ['prenom', 'string', 'min' => 0]
         ];
     }
+
 }

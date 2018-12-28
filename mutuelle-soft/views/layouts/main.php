@@ -10,6 +10,8 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
+// TODO (1) Changer le syle de main.php
+
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -38,10 +40,7 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            /*['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],*/
-            ['label' => 'Enseignant', 'url' => ['/site/ajoutmembre']],
+            ['label' => 'Enseignant', 'url' => ['/site/listemembres']],
             ['label' => 'Emprunts', 'url' => ['/site/emprunts']],
             ['label' => 'Remboursements', 'url' => ['/site/remboursements']],
             ['label' => 'Epargnes', 'url' => ['/site/epargnes']],

@@ -129,6 +129,9 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
+    /*
+     * Redirige vers la page d'ajout d'un membre
+     */
     public function actionAjoutmembre()
     {
         $model = new AjoutmembreForm();
@@ -136,25 +139,32 @@ class SiteController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->validate())
         {
-            $model->file = UploadedFile::getInstance($model, 'photo');
-
+            $model->photo = UploadedFile::getInstance($model, 'photo');
             $enseignant->nom = $model->nom;
+            $enseignant->telephone = $model->telephone;
             $enseignant->prenom = $model->prenom;
             $enseignant->email = $model->email;
             $enseignant->adresse = $model->adresse;
-            $enseignant->photo = 'uploads/' . $model->file->baseName . '.' . $model->file->extension;
+            $enseignant->photo =  $model->nom . '.' . $model->photo->extension;
             $enseignant->dateinscription = $model->dateinscription;
             $enseignant->pass = $model->pass;
             $enseignant->save();
 
-
-            if ($model->file && $model->validate()) {
-                $model->file->saveAs('uploads/' . $model->file->baseName . '.' . $model->file->extension);
+            if ($model->photo && $model->validate()) {
+                if($model->photo->saveAs('../uploads/' . $model->nom . '_' . $model->prenom . '.' . $model->photo->extension));
             }
 
              Yii::$app->session->setFlash("succes", "Membre ajouté avec succès");
         }
         return $this->render('ajoutmembre', ['model' => $model]);
 
+    }
+
+    /*
+     * Redirige vers la liste des membres
+     */
+    public function actionListemembres()
+    {
+        return $this->render('listemembres');
     }
 }
