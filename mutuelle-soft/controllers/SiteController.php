@@ -151,7 +151,7 @@ class SiteController extends Controller
             $enseignant->save();
 
             if ($model->photo && $model->validate()) {
-                if($model->photo->saveAs('../uploads/' . $model->nom . '_' . $model->prenom . '.' . $model->photo->extension));
+                if($model->photo->saveAs('../web/uploads/' . $model->nom . '_' . $model->prenom . '.' . $model->photo->extension));
             }
 
              Yii::$app->session->setFlash("succes", "Membre ajouté avec succès");
