@@ -47,7 +47,7 @@ AppAsset::register($this);
             ['label' => 'Fonds sociaux', 'url' => ['/site/fonds']],
             ['label' => '', 'url' => ['/site/parametres'], 'icon' => '../../web/'],
             Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
+                ['label' => 'Sign In', 'url' => ['/user/login']],['label' => 'Sign Up', 'url' => ['/user/register']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
