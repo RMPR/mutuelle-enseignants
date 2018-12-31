@@ -51,7 +51,7 @@ AppAsset::register($this);
             ['label' => 'Enseignant', 'url' => ['/site/listemembres']],
             ['label' => 'Emprunts', 'url' => ['/site/emprunts']],
             ['label' => 'Remboursements', 'url' => ['/site/remboursements']],
-            ['label' => 'Epargnes', 'url' => ['/site/epargnes']],
+            ['label' => 'Epargnes', 'url' => ['/site/listeepargnes']],
             ['label' => 'Fonds sociaux', 'url' => ['/site/fonds']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
