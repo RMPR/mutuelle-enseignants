@@ -8,6 +8,10 @@ $config = [
     [
         'user' => [
             'class' => 'dektrium\user\Module',
+            'enableUnconfirmedLogin' => true,
+            'confirmWithin' => 216000,
+            'cost' => 12,
+            'admins' => ['admin']
         ],
     ],
     'id' => 'basic',
@@ -18,6 +22,10 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
+        'urlManager' => [
+            'showScriptName' => false,
+            'enablePrettyUrl' => true
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'VcqVlNNT0fBwE770CCjojRsF5-vDrCzb',
@@ -25,10 +33,10 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        'user' => [
+        /*'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => false,
-        ],
+        ],*/
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -43,6 +51,13 @@ $config = [
                 'password' => 'poly1971',
                 'port' => '587',
                 'encryption' => 'tls',
+                'streamOptions' => [
+                    'ssl' => [
+                        'allow_self_signed'=> true,
+                        'verify_peer' => false,
+                        'verify_peer_name' => false,
+                    ],
+                ],
             ],
         
         ],
