@@ -56,34 +56,26 @@ $this->title = "";
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+    $navItems=[
+        ['label' => 'Enseignant', 'url' => ['/site/listemembres']],
+        ['label' => 'Emprunts', 'url' => ['/site/emprunts']],
+        ['label' => 'Remboursements', 'url' => ['/site/remboursements']],
+        ['label' => 'Epargnes', 'url' => ['/site/listeepargnes']],
+        ['label' => 'Fonds sociaux', 'url' => ['/site/fonds']],
+        ['label' => '', 'url' => ['/site/parametres'], 'icon' => '../../web/'],
+    ];
+    if (Yii::$app->user->isGuest){
+        array_push($navItems, ['label' => 'Sign in', 'url' => ['/user/login']], ['label' => 'Sign up', 'url' => ['/user/register']]);
+    } else {
+        array_push($navItems, ['label' => 'Logout (' . Yii::$app->user->identity->username . ')', 'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']]);
+    }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Enseignant', 'url' => ['/site/listemembres']],
-            ['label' => 'Emprunts', 'url' => ['/emprunt/index']],
-            ['label' => 'Remboursements', 'url' => ['/site/remboursements']],
-
-            ['label' => 'Epargnes', 'url' => ['/site/listeepargnes']],
-
-            ['label' => 'Fonds sociaux', 'url' => ['/site/fonds']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            ),
-        ],
+        'items' => $navItems,
     ]);
     NavBar::end();
     ?>
-
-    <div class="">
+    <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
