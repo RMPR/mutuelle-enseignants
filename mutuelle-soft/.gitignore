@@ -33,8 +33,10 @@ tests/_support/_generated
 /.vagrant
 
 #database file configuration
-/config/db.php
+config/db.php
 
+# uploads
+web/uploads
 <<<<<<< HEAD
 #web configuration file
 /config/web.php

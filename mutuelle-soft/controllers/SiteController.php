@@ -163,8 +163,17 @@ class SiteController extends Controller
     /*
      * Redirige vers la liste des membres
      */
-    public function actionListemembres()
+   public function actionListemembres()
     {
         return $this->render('listemembres');
+    }
+
+    /*
+     * Redirige vers la liste des epargnes
+     */
+    public function actionListeepargnes()
+    {
+        $post = Yii::$app->db->createCommand("SELECT * FROM enseignant JOIN epargne ON idenseignant=enseignant_idenseignant;")->queryAll();
+        return $this->render('listeepargnes', ['post' => $post]);
     }
 }

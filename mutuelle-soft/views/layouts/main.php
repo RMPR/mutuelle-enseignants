@@ -13,8 +13,9 @@ use \app\assets\EnseignantBundle;
 // TODO (1) Changer le syle de main.php
 
 AppAsset::register($this);
-\app\assets\EnseignantBundle::register($this);
+EnseignantBundle::register($this);
 
+$this->title = "";
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -30,13 +31,23 @@ AppAsset::register($this);
         {
             color: #fcd032 !important;
         }
+        .footer
+        {
+            position: fixed;
+            bottom: 0;
+        }
+        .content
+        {
+            position: relative;
+            top: 50px
+        }
     </style>
     <?php $this->head() ?>
 </head>
 <body>
 <?php $this->beginBody() ?>
 
-<div class="container">
+<div>
     <?php
     NavBar::begin([
         'brandLabel' => "Mutuelle enseignant",
@@ -52,7 +63,7 @@ AppAsset::register($this);
             ['label' => 'Emprunts', 'url' => ['/emprunt/index']],
             ['label' => 'Remboursements', 'url' => ['/site/remboursements']],
 
-            ['label' => 'Epargnes', 'url' => ['/epargne/index']],
+            ['label' => 'Epargnes', 'url' => ['/site/listeepargnes']],
 
             ['label' => 'Fonds sociaux', 'url' => ['/site/fonds']],
             Yii::$app->user->isGuest ? (
@@ -72,22 +83,28 @@ AppAsset::register($this);
     NavBar::end();
     ?>
 
-    <div class="container">
+    <div class="">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= Alert::widget() ?>
-        <?= $content ?>
+<!--        --><?//= $content ?>
     </div>
+
 </div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+<div class="container content">
+    <?= $content ?>
+</div>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
+
+<!--<footer class="footer">-->
+<!--    <div class="container">-->
+<!--        <p class="pull-left">&copy; My Company --><?//= date('Y') ?><!--</p>-->
+<!---->
+<!--        <p class="pull-right">--><?//= Yii::powered() ?><!--</p>-->
+<!--    </div>-->
+<!--</footer>-->
 
 <?php $this->endBody() ?>
 </body>
