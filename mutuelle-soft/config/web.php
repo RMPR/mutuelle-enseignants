@@ -7,7 +7,7 @@ $config = [
     'modules' => 
     [
         'user' => [
-            'class' => 'desktrium\user\Module',
+            'class' => 'dektrium\user\Module',
         ],
     ],
     'id' => 'basic',
