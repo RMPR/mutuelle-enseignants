@@ -9,10 +9,12 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
-
+use \app\assets\EnseignantBundle;
 // TODO (1) Changer le syle de main.php
 
 AppAsset::register($this);
+\app\assets\EnseignantBundle::register($this);
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -23,12 +25,18 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    <style>
+        nav #w0-collapse li a:focus, nav #w0-collapse li a:hover
+        {
+            color: #fcd032 !important;
+        }
+    </style>
     <?php $this->head() ?>
 </head>
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
+<div class="container">
     <?php
     NavBar::begin([
         'brandLabel' => "Mutuelle enseignant",
