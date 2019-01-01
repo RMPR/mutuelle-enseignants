@@ -34,6 +34,3 @@ tests/_support/_generated
 
 #database file configuration
 /config/db.php
-
-#web configuration file
-/config/web.php
