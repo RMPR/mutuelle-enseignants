@@ -39,4 +39,3 @@ config/db.php
 web/uploads
 
 #web configuration file
-/config/web.php
