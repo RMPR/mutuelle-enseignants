@@ -47,9 +47,9 @@ AppAsset::register($this);
     ]);
     $navItems=[
         ['label' => 'Enseignant', 'url' => ['/site/listemembres']],
-        ['label' => 'Emprunts', 'url' => ['/site/emprunts']],
+        ['label' => 'Emprunts', 'url' => ['/emprunt/index']],
         ['label' => 'Remboursements', 'url' => ['/site/remboursements']],
-        ['label' => 'Epargnes', 'url' => ['/site/epargnes']],
+        ['label' => 'Epargnes', 'url' => ['/epargne/index']],
         ['label' => 'Fonds sociaux', 'url' => ['/site/fonds']],
         ['label' => '', 'url' => ['/site/parametres'], 'icon' => '../../web/'],
     ];
