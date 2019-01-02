@@ -64,6 +64,7 @@ DROP TABLE IF EXISTS `mutuelle`.`fondsocial` ;
 CREATE TABLE IF NOT EXISTS `mutuelle`.`fondsocial` (
   `idfondsocial` INT NOT NULL AUTO_INCREMENT,
   `montant` VARCHAR(45) NOT NULL,
+  `occasion` VARCHAR(100),
   `session` VARCHAR(30) NULL,
   `enseignant_idenseignant` INT NOT NULL,
   PRIMARY KEY (`idfondsocial`, `enseignant_idenseignant`),
