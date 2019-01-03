@@ -1,4 +1,9 @@
 <?php
+/**
+ * @link https://github.com/rmpr/mutuelle-enseignants
+ * @copyright None
+ * @license Unlicense
+ */
 
 namespace app\controllers;
 
@@ -20,6 +25,11 @@ use app\models\ContactForm;
 use yii\web\UploadedFile;
 use yii\data\Pagination;
 
+/**
+ * SiteController gère globlalement les routes 
+ * de l'application
+ * @author rmpr
+ */
 class SiteController extends Controller
 {
     /**
@@ -30,8 +40,13 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+                'only' => ['logout', 'logout', 'signup'],
                 'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['login', 'signup'],
+                        'roles' => ['?']
+                    ],
                     [
                         'actions' => ['logout'],
                         'allow' => true,
