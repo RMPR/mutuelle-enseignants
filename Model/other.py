@@ -5,7 +5,7 @@ import random
 
 n = 50
 
-cnx = mysql.connector.connect(user='root', password='Gestiondebasesdedonnees',
+cnx = mysql.connector.connect(user='root', password='toor',
                               host='127.0.0.1',
                               database='mutuelle')
 

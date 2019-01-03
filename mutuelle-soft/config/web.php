@@ -7,8 +7,10 @@ $config = [
     'modules' =>
     [
         // Yii2 RBAC
-        'rbac' => 'dektrium\rbac\RbacWebModule',
-        'rbac' => 'dektrium\rbac\RbacConsoleModule',
+        'rbac' => [
+            'class' => 'dektrium\rbac\RbacWebModule',
+            'admins' => ['admin'],
+        ],
         'user' => [
             'class' => 'dektrium\user\Module',
             // Yii2 User Controllers Overrides
@@ -126,7 +128,7 @@ $config = [
         ],
         'db' => $db,
         'authManager'  => [
-            'class'        => 'yii\rbac\DbManager',
+            'class' => 'dektrium\rbac\components\DbManager',
             //            'defaultRoles' => ['guest'],
         ],
         /*
