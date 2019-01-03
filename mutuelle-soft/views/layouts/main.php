@@ -58,8 +58,8 @@ $this->title = "";
     ]);
     $navItems=[
         ['label' => 'Enseignant', 'url' => ['/site/listemembres']],
-        ['label' => 'Emprunts', 'url' => ['/site/emprunts']],
-        ['label' => 'Remboursements', 'url' => ['/site/remboursements']],
+        ['label' => 'Emprunts', 'url' => ['/site/listeemprunts']],
+        ['label' => 'Remboursements', 'url' => ['/site/listeremboursements']],
         ['label' => 'Epargnes', 'url' => ['/site/listeepargnes']],
         ['label' => 'Fonds sociaux', 'url' => ['/site/fonds']],
         ['label' => '', 'url' => ['/site/parametres'], 'icon' => '../../web/'],

@@ -4,7 +4,7 @@ $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
-    'modules' => 
+    'modules' =>
     [
         'user' => [
             'class' => 'dektrium\user\Module',
@@ -33,10 +33,10 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        /*'user' => [
+        'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => false,
-        ],*/
+        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -59,7 +59,7 @@ $config = [
                     ],
                 ],
             ],
-        
+
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

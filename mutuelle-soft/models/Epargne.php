@@ -8,7 +8,7 @@ use yii\db\ActiveRecord;
  * This is the model class for table "epargne".
  *
  * @property int $idepargne
- * @property string $montant
+ * @property double $montant
  * @property string $session
  * @property int $enseignant_idenseignant
  *

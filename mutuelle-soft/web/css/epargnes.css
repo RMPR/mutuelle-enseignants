@@ -1,3 +1,41 @@
+.label_ajout_epr
+{
+    font-weight: bold;
+   /* background-color: #4a4b4c;
+    color: white;*/
+}
+.form-pop-epr
+{
+    margin-top: 20px;
+    margin-bottom: 15px;
+    border-color: #5f5f5f;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.nom_ajout_epr
+{
+    margin-bottom: 10px;
+}
+
+.session_ajout_epr
+{
+    margin-bottom: 10px;
+}
+
+.montant_ajout_epr
+{
+    margin-bottom: 10px;
+}
+.bouton_ajout_epr
+{
+    border-radius: 0;
+    color: #4a4b4c;
+    background-color: #f4b71a;
+    font-weight: bold;
+    height: 40px;
+}
+
 .num-epr
 {
 
@@ -64,6 +102,7 @@
 
 .container-epr
 {
-    margin-top: 30px;
+    margin-top: 28%;
+    position: absolute
 }
 
