@@ -44,10 +44,4 @@ $ php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
 $ php yii migrate/up --migrationPath=@yii/rbac/migrations
 ```
 
-### Update yii2 user extended database schema
-
-```bash 
-$ php yii migrate/up --migrationPath=@vendor/cinghie/yii2-user-extended/migrations
-```
-
 > You may need to do composer update sometimes 
