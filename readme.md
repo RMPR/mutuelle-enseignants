@@ -13,6 +13,25 @@ $ composer install
 
 ## Configuration
 
+### Database file
+After executing the sql script located in /Model and the script fake-data.bat to generate random data
+Create the file db.php in the config directory with the following content
+
+```php
+<?php
+return [
+    'class' => 'yii\db\Connection',
+    'dsn' => 'mysql:host=localhost;dbname=mutuelle',
+    'username' => 'root',
+    'password' => your_root_password,
+    'charset' => 'utf8',
+    // Schema cache options (for production environment)
+    //'enableSchemaCache' => true,
+    //'schemaCacheDuration' => 60,
+    //'schemaCache' => 'cache',
+];
+```
+
 ### Update yii2-user database schema
 
 ```bash

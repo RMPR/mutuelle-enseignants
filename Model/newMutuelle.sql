@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `mutuelle`.`epargne` (
   INDEX `fk_epargne_enseignant_idx` (`enseignant_idenseignant` ASC),
   CONSTRAINT `fk_epargne_enseignant`
     FOREIGN KEY (`enseignant_idenseignant`)
-    REFERENCES `mydb`.`enseignant` (`idenseignant`)
+    REFERENCES `mutuelle`.`enseignant` (`idenseignant`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -64,13 +64,14 @@ DROP TABLE IF EXISTS `mutuelle`.`fondsocial` ;
 CREATE TABLE IF NOT EXISTS `mutuelle`.`fondsocial` (
   `idfondsocial` INT NOT NULL AUTO_INCREMENT,
   `montant` VARCHAR(45) NOT NULL,
+  `occasion` VARCHAR(100),
   `session` VARCHAR(30) NULL,
   `enseignant_idenseignant` INT NOT NULL,
   PRIMARY KEY (`idfondsocial`, `enseignant_idenseignant`),
   INDEX `fk_fondsocial_enseignant1_idx` (`enseignant_idenseignant` ASC),
   CONSTRAINT `fk_fondsocial_enseignant1`
     FOREIGN KEY (`enseignant_idenseignant`)
-    REFERENCES `mydb`.`enseignant` (`idenseignant`)
+    REFERENCES `mutuelle`.`enseignant` (`idenseignant`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -92,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `mutuelle`.`emprunt` (
   INDEX `fk_emprunt_enseignant1_idx` (`enseignant_idenseignant` ASC),
   CONSTRAINT `fk_emprunt_enseignant1`
     FOREIGN KEY (`enseignant_idenseignant`)
-    REFERENCES `mydb`.`enseignant` (`idenseignant`)
+    REFERENCES `mutuelle`.`enseignant` (`idenseignant`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -116,12 +117,12 @@ CREATE TABLE IF NOT EXISTS `mutuelle`.`remboursement` (
   INDEX `fk_remboursement_emprunt1_idx` (`emprunt_idemprunt` ASC, `emprunt_enseignant_idenseignant` ASC),
   CONSTRAINT `fk_remboursement_enseignant1`
     FOREIGN KEY (`enseignant_idenseignant`)
-    REFERENCES `mydb`.`enseignant` (`idenseignant`)
+    REFERENCES `mutuelle`.`enseignant` (`idenseignant`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_remboursement_emprunt1`
     FOREIGN KEY (`emprunt_idemprunt` , `emprunt_enseignant_idenseignant`)
-    REFERENCES `mydb`.`emprunt` (`idemprunt` , `enseignant_idenseignant`)
+    REFERENCES `mutuelle`.`emprunt` (`idemprunt` , `enseignant_idenseignant`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

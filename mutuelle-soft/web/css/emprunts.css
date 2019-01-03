@@ -1,0 +1,18 @@
+.table-rem
+{
+}
+.table-head
+{
+    background-color: #4a4b4c;
+    color: #f4b71a;
+}
+.caption-emp
+{
+    background-color: #4a4b4c;
+    color: white;
+    font-weight: bold;
+}
+th
+{
+    font-weight: normal;
+}

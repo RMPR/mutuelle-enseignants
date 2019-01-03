@@ -1,14 +1,14 @@
 <?php
 
 namespace app\models;
+use yii\db\ActiveRecord;
 
-use Yii;
 
 /**
  * This is the model class for table "epargne".
  *
  * @property int $idepargne
- * @property string $montant
+ * @property double $montant
  * @property string $session
  * @property int $enseignant_idenseignant
  *
@@ -16,13 +16,6 @@ use Yii;
  */
 class Epargne extends \yii\db\ActiveRecord
 {
-    /**
-     * {@inheritdoc}
-     */
-    public static function tableName()
-    {
-        return 'epargne';
-    }
 
     /**
      * {@inheritdoc}
@@ -59,3 +52,4 @@ class Epargne extends \yii\db\ActiveRecord
         return $this->hasOne(Enseignant::className(), ['idenseignant' => 'enseignant_idenseignant']);
     }
 }
+
