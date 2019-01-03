@@ -8,6 +8,7 @@ $config = [
     [
         'user' => [
             'class' => 'dektrium\user\Module',
+            'admins' => ['rmpr']
         ],
     ],
     'id' => 'basic',
@@ -29,10 +30,12 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        /*
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => false,
         ],
+        */
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],

@@ -67,7 +67,7 @@ $this->title = "";
     if (Yii::$app->user->isGuest){
         array_push($navItems, ['label' => 'Connexion', 'url' => ['/user/login']], ['label' => 'Inscription', 'url' => ['/user/register']]);
     } else {
-        array_push($navItems, ['label' => 'Déconnexion (' . Yii::$app->user->identity->username . ')', 'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']]);
+        array_push($navItems, ['label' => 'Deconnexion (' . Yii::$app->user->identity->username . ')', 'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']]);
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],

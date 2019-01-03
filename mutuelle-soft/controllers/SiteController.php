@@ -40,13 +40,8 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'logout', 'signup'],
+                'only' => ['logout'],
                 'rules' => [
-                    [
-                        'allow' => true,
-                        'actions' => ['login', 'signup'],
-                        'roles' => ['?']
-                    ],
                     [
                         'actions' => ['logout'],
                         'allow' => true,
@@ -62,7 +57,6 @@ class SiteController extends Controller
             ],
         ];
     }
-
     /**
      * {@inheritdoc}
      */
