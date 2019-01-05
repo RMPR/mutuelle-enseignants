@@ -27,10 +27,7 @@ $this->title = "";
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <style>
-        nav #w0-collapse li a:focus, nav #w0-collapse li a:hover
-        {
-            color: #fcd032 !important;
-        }
+
         .footer
         {
             position: fixed;
@@ -53,16 +50,17 @@ $this->title = "";
         'brandLabel' => "Mutuelle enseignant",
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar navbar-expand-lg navbar-dark bg-dark'//'navbar-inverse navbar-fixed-top',
         ],
+
     ]);
     $navItems=[
-        ['label' => 'Enseignant', 'url' => ['/site/listemembres']],
+        ['label' => 'Enseignant', 'url' => ['/site/listemembres'] ],
         ['label' => 'Emprunts', 'url' => ['/site/listeemprunts']],
         ['label' => 'Remboursements', 'url' => ['/site/listeremboursements']],
         ['label' => 'Epargnes', 'url' => ['/site/listeepargnes']],
         ['label' => 'Fonds sociaux', 'url' => ['/site/fondsocial']],
-        ['label' => '', 'url' => ['/site/parametres'], 'icon' => '../../web/'],
+        ['label' => '', 'url' => ['/site/parametres'], 'linkOptions' =>['class' => 'fa fa-cog fa-2x']],
     ];
     if (Yii::$app->user->isGuest){
         array_push($navItems, ['label' => 'Connexion', 'url' => ['/user/login']], ['label' => 'Inscription', 'url' => ['/user/register']]);

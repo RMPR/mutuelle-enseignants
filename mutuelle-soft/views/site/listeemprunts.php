@@ -95,7 +95,7 @@ $this->registerJs($script);
 
 <div class="container-fluid table-rem">
     <table class="table table-bordered">
-        <caption class="text-center caption-emp">Liste des emprunts</caption>
+        <caption class="text-center caption-emp">Historique des emprunts</caption>
         <thead class="table-head">
             <th>N°</th>
             <th>Nom</th>
