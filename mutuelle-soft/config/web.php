@@ -8,7 +8,7 @@ $config = [
     [
         'user' => [
             'class' => 'dektrium\user\Module',
-            'admins' => ['rmpr', 'Sourec']
+            'admins' => ['rmpr', 'Sourec', 'admin']
         ],
     ],
     'id' => 'basic',

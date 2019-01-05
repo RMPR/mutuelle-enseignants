@@ -55,7 +55,7 @@ $this->title = "";
 
     ]);
     $navItems=[
-        ['label' => 'Enseignant', 'url' => ['/site/listemembres'] ],
+        ['label' => 'Enseignants', 'url' => ['/user/admin/index'] ],
         ['label' => 'Emprunts', 'url' => ['/site/listeemprunts']],
         ['label' => 'Remboursements', 'url' => ['/site/listeremboursements']],
         ['label' => 'Epargnes', 'url' => ['/site/listeepargnes']],
