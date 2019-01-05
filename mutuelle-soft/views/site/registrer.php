@@ -8,7 +8,7 @@ use yii\widgets\ActiveForm;
  * @var dektrium\user\models\User $user
  */
 
-$this->title = Yii::t('user', 'Inscription');
+$this->title = Yii::t('user', 'Sign up');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row">
@@ -22,27 +22,21 @@ $this->params['breadcrumbs'][] = $this->title;
                     'id' => 'registration-form',
                 ]); ?>
                 
-                <?= $form->field($model, 'Photo de profil') ?>
-                
                 <?= $form->field($model, 'name') ?>
                 
                 <?= $form->field($model, 'email') ?>
 
-                <?= $form->field($model, 'Telephone') ?>
+                <?= $form->field($model, 'username') ?>
 
-                <?= $form->field($model, 'Nom') ?>
+                <?= $form->field($model, 'password')->passwordInput() ?>
 
-                <?= $form->field($model, 'Mot de Passe')->passwordInput() ?>
-
-                <?= $form->field($model, 'Adresse') ?>
-
-                <?= Html::submitButton(Yii::t('user', 'Inscription'), ['class' => 'btn btn-success btn-block']) ?>
+                <?= Html::submitButton(Yii::t('user', 'Sign up'), ['class' => 'btn btn-success btn-block']) ?>
 
                 <?php ActiveForm::end(); ?>
             </div>
         </div>
         <p class="text-center">
-            <?= Html::a(Yii::t('user', 'Déjà inscrit ? Connectez-vous'), ['/user/security/login']) ?>
+            <?= Html::a(Yii::t('user', 'Already registered? Sign in!'), ['/user/security/login']) ?>
         </p>
     </div>
 </div>
