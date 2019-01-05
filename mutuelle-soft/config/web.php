@@ -8,7 +8,7 @@ $config = [
     [
         'user' => [
             'class' => 'dektrium\user\Module',
-            'admins' => ['rmpr']
+            'admins' => ['rmpr', 'Sourec']
         ],
     ],
     'id' => 'basic',
@@ -69,10 +69,6 @@ $config = [
             ],
         ],
         'db' => $db,
-        'authManager'  => [
-            'class' => 'dektrium\rbac\components\DbManager',
-            //            'defaultRoles' => ['guest'],
-        ],
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,

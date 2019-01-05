@@ -60,7 +60,7 @@ $this->title = "";
         ['label' => 'Remboursements', 'url' => ['/site/listeremboursements']],
         ['label' => 'Epargnes', 'url' => ['/site/listeepargnes']],
         ['label' => 'Fonds sociaux', 'url' => ['/site/fondsocial']],
-        ['label' => '', 'url' => ['/site/parametres'], 'linkOptions' =>['class' => 'fa fa-cog fa-2x']],
+//        ['label' => '', 'url' => ['/site/parametres'], 'linkOptions' =>['class' => 'fa fa-cog fa-2x']],
     ];
     if (Yii::$app->user->isGuest){
         array_push($navItems, ['label' => 'Connexion', 'url' => ['/user/login']], ['label' => 'Inscription', 'url' => ['/user/register']]);
@@ -86,7 +86,6 @@ $this->title = "";
 <div class="container content">
     <?= $content ?>
 </div>
-
 
 <!--<footer class="footer">-->
 <!--    <div class="container">-->
