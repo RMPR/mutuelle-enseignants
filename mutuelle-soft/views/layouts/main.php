@@ -61,7 +61,7 @@ $this->title = "";
         ['label' => 'Emprunts', 'url' => ['/site/listeemprunts']],
         ['label' => 'Remboursements', 'url' => ['/site/listeremboursements']],
         ['label' => 'Epargnes', 'url' => ['/site/listeepargnes']],
-        ['label' => 'Fonds sociaux', 'url' => ['/site/fonds']],
+        ['label' => 'Fonds sociaux', 'url' => ['/site/fondsocial']],
         ['label' => '', 'url' => ['/site/parametres'], 'icon' => '../../web/'],
     ];
     if (Yii::$app->user->isGuest){

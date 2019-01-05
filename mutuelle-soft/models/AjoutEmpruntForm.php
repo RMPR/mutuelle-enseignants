@@ -25,7 +25,7 @@ class AjoutEmpruntForm extends Model
             ['montant_a', 'required', 'message' => 'Le champ montant ne peut pas être vide'],
             ['montant_a', 'compare', 'compareValue' => 0, 'operator' => '>', 'type' => 'number', 'message' => 'Le montant doit être strictement supérieur à 0'],
             ['session_a', 'string', 'min' => 4],
-            ['session_a', 'required']
+            ['session_a', 'required', 'message' => 'Vous n\'avez pas entré de session']
         ];
     }
 }

@@ -30,17 +30,17 @@ class Emprunt extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
-    public function rules()
-    {
-        return [
-            [['montant', 'enseignant_idenseignant'], 'required'],
-            [['montant', 'interet'], 'number'],
-            [['databutoir'], 'safe'],
-            [['enseignant_idenseignant'], 'integer'],
-            [['session'], 'string', 'max' => 30],
-            [['enseignant_idenseignant'], 'exist', 'skipOnError' => true, 'targetClass' => Enseignant::className(), 'targetAttribute' => ['enseignant_idenseignant' => 'idenseignant']],
-        ];
-    }
+//    public function rules()
+//    {
+//        return [
+//            [['montant', 'enseignant_idenseignant'], 'required'],
+//            [['montant', 'interet'], 'number'],
+//            [['databutoir'], 'safe'],
+//            [['enseignant_idenseignant'], 'integer'],
+//            [['session'], 'string', 'max' => 30],
+//            [['enseignant_idenseignant'], 'exist', 'skipOnError' => true, 'targetClass' => Enseignant::className(), 'targetAttribute' => ['enseignant_idenseignant' => 'idenseignant']],
+//        ];
+//    }
 
     /**
      * {@inheritdoc}

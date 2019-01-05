@@ -20,16 +20,16 @@ class Epargne extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
-    public function rules()
-    {
-        return [
-            [['montant', 'enseignant_idenseignant'], 'required'],
-            [['montant'], 'number'],
-            [['enseignant_idenseignant'], 'integer'],
-            [['session'], 'string', 'max' => 30],
-            [['enseignant_idenseignant'], 'exist', 'skipOnError' => true, 'targetClass' => Enseignant::className(), 'targetAttribute' => ['enseignant_idenseignant' => 'idenseignant']],
-        ];
-    }
+//    public function rules()
+//    {
+//        return [
+//            [['montant', 'enseignant_idenseignant'], 'required', 'message' => 'Vous devez entrer un montant'],
+//            [['montant'], 'number', 'message' => 'Le montant doit être un nombre'],
+//            [['enseignant_idenseignant'], 'integer'],
+//            [['session'], 'string', 'max' => 30],
+//            [['enseignant_idenseignant'], 'exist', 'skipOnError' => true, 'targetClass' => Enseignant::className(), 'targetAttribute' => ['enseignant_idenseignant' => 'idenseignant']],
+//        ];
+//    }
 
     /**
      * {@inheritdoc}

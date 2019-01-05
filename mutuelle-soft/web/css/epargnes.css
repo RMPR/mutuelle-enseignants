@@ -1,3 +1,11 @@
+.succesajoutepr
+{
+    margin-top: 8%;
+}
+.succesajoutemp
+{
+    margin-top: 4%;
+}
 .label_ajout_epr
 {
     font-weight: bold;
@@ -6,7 +14,7 @@
 }
 .form-pop-epr
 {
-    margin-top: 20px;
+    /*margin-top: 20px;*/
     margin-bottom: 15px;
     border-color: #5f5f5f;
     border-style: solid;
@@ -76,7 +84,8 @@
     border-right: none;
     border-width: 1px;
     border-color: #bcbbb8;
-    color: #1cbc29
+    color: #1cbc29;
+    overflow: auto;
 }
 
 .bouton-epr
@@ -102,7 +111,6 @@
 
 .container-epr
 {
-    margin-top: 28%;
     position: absolute
 }
 

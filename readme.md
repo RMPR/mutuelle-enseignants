@@ -44,4 +44,8 @@ $ php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
 $ php yii migrate/up --migrationPath=@yii/rbac/migrations
 ```
 
+### Update database file
+
+​	execute the script Model/updateMutuelle.sql
+
 > You may need to do composer update sometimes 
