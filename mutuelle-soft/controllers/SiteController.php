@@ -13,7 +13,10 @@ use app\models\Emprunt;
 use app\models\enseignant;
 use app\models\AjoutmembreForm;
 use app\models\Epargne;
+use app\models\Fondsocial;
 use app\models\RemboursementForm;
+use app\models\RetraitEpargneForm;
+use app\models\RetraitFondForm;
 use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
@@ -190,51 +193,41 @@ class SiteController extends Controller
     {
         $ajoutEpargneForm = new AjoutEpargneForm();
         $epargne = new Epargne();
-
-        // Jointure des tables enseignants et epargnes
-        $post = Yii::$app->db->createCommand("SELECT * FROM enseignant JOIN epargne ON idenseignant=enseignant_idenseignant ORDER BY nom ASC;")->queryAll();
+        $retraitEpargneForm = new RetraitEpargneForm();
+        // Liste des épargnants
+        $post = Yii::$app->db->createCommand("SELECT id,username,email,idepargne, sum(montant) as montant,session FROM user JOIN epargne  ON id=enseignant_idenseignant  GROUP BY username ORDER BY username ASC ;")->queryAll();
 
         // Récupération des noms des épargnants
-        $nomsEpargnants = Yii::$app->db->createCommand("SELECT nom FROM enseignant JOIN epargne ON idenseignant=enseignant_idenseignant ORDER BY nom ASC;")->queryAll();
+        $nomsEpargnants = Yii::$app->db->createCommand("SELECT id, username FROM user")->queryAll();
 
         // Si le formulaire d'ajout d'épargne est validé
-        if ($ajoutEpargneForm->load(Yii::$app->request->post()) && $ajoutEpargneForm->validate()) {
-
-            $idepargnant = array_search($ajoutEpargneForm->nom_a, $nomsEpargnants);
-            Yii::$app->db->createCommand()->update("epargne", ["montant" => $ajoutEpargneForm->montant_a,
-                "session" => $ajoutEpargneForm->session_a],
-                "enseignant_idenseignant= " . $idepargnant)->execute();
-            /*$epargne->montant = $ajoutEpargneForm->montant_a;
+        if ($ajoutEpargneForm->load(Yii::$app->request->post()) && $ajoutEpargneForm->validate())
+        {
+            $epargne->montant = $ajoutEpargneForm->montant_a;
             $epargne->session = $ajoutEpargneForm->session_a;
-            $epargne->enseignant_idenseignant = array_search($ajoutEpargneForm->nom_a, $nomsEpargnants);
-            $epargne->save(true);*/
+            $epargne->enseignant_idenseignant = $_POST["selectnomepr"];
+            $epargne->save();
+            Yii::$app->session->setFlash("succesajoutepr", "Epargne ajoutée avec succès");
+            $this->refresh();
+        }
+
+        if ($retraitEpargneForm->load(Yii::$app->request->post()) && $retraitEpargneForm->validate())
+        {
+            $epargne->montant = -1 * $retraitEpargneForm->montant_r;
+            $epargne->session = $retraitEpargneForm->session_r;
+            $epargne->enseignant_idenseignant = $_POST["selectnomepr2"];
+            $epargne->save();
+            Yii::$app->session->setFlash("succesajoutepr", "Argent retiré avec succès");
+            $this->refresh();
         }
 
         return $this->render('listeepargnes', ['post' => $post,
             'ajoutEpargneForm' => $ajoutEpargneForm,
-            'nomsEpargnants' => $nomsEpargnants,]);
+            'nomsEpargnants' => $nomsEpargnants,
+            'retraitEpargneForm' => $retraitEpargneForm]);
     }
 
 
-    /**
-     * Redirection vers la liste des remboursements
-     */
-    public function actionListeremboursements()
-    {
-        // Jointure des tables enseignants et epargnes
-        $post = Yii::$app->db->createCommand("SELECT * FROM enseignant JOIN emprunt ON idenseignant=enseignant_idenseignant ORDER BY nom ASC;")->queryAll();
-
-        // Représente le formulaire de remboursement
-        $remboursementForm = new RemboursementForm();
-
-        // Si le formulaire est validé alors
-        if($remboursementForm->load(Yii::$app->request->post()) && $remboursementForm->validate())
-        {
-
-        }
-        return $this->render('listeremboursements', ['post' => $post,
-                                                           'remboursementForm' => $remboursementForm]);
-    }
 
 
     /**
@@ -246,41 +239,91 @@ class SiteController extends Controller
         $ajoutEmpruntForm = new AjoutEmpruntForm();
 
         //Liste des enseignants
-        $enseignants = Enseignant::find()->orderBy("nom ASC")->all();
+        $enseignants = Yii::$app->db->createCommand("SELECT id, username FROM user")->queryAll();
 
 
         //La liste des emprunteurs
-        $listeEmprunteurs = Yii::$app->db->createCommand("SELECT idenseignant, nom, prenom, montant , session, interet, databutoir FROM enseignant JOIN emprunt ON idenseignant=enseignant_idenseignant ORDER BY nom ASC ;")->queryAll();
+        $listeEmprunteurs = Yii::$app->db->createCommand("SELECT id, username, montant , session, interet, databutoir FROM user JOIN emprunt ON id=enseignant_idenseignant ORDER BY username ASC ;")->queryAll();
 
         // Nouvel emprunt
         $emprunt = new Emprunt();
 
-        $interet = 0;
         // Si le formulaire est soumis
         if($ajoutEmpruntForm->load(Yii::$app->request->post()) && $ajoutEmpruntForm->validate())
         {
-            $dateButoir = Yii::$app->db->createCommand("SELECT ADDDATE('".$ajoutEmpruntForm->session_a ."',interval 3 month) as datebutoir")->queryOne()["datebutoir"];
-            $emprunt->montant = $ajoutEmpruntForm->montant_a;
+            $dateButoir = Yii::$app->db->createCommand("SELECT ADDDATE('" . $ajoutEmpruntForm->session_a . "',interval 3 month) as datebutoir")->queryOne()["datebutoir"];
+            $emprunt->montant = $ajoutEmpruntForm->montant_a * 1.01;
             $emprunt->session = $ajoutEmpruntForm->session_a;
             if($_SERVER["REQUEST_METHOD"] == "POST")
                 $emprunt->enseignant_idenseignant = $_POST["select"];
-            foreach ($listeEmprunteurs as $emprunteur)
-            {
-                if($emprunteur["idenseignant"] == $_POST["select"])
-                    $interet = $emprunteur["interet"];
-            }
-            $emprunt->interet = $interet;
+
+            $emprunt->interet = 0.01;
             $emprunt->databutoir = $dateButoir;
             $emprunt->save();
+
+            Yii::$app->session->setFlash("succesajoutemp", "Emprunt ajoutée avec succès");
+
             $this->refresh();
         }
-
         return $this->render('listeemprunts', ['ajoutEmpruntForm' => $ajoutEmpruntForm,
                                                      'listeEmprunteurs' => $listeEmprunteurs,
                                                      'enseignants' => $enseignants]);
     }
-}
 
-//TODO (1) vérifier l'intérêt
-//TODO (2) Ajouter la pagination
-//TODO (3) Ajouter des datepickers
+
+    /**
+     * Redirection vers la liste des remboursements
+     * Ici, on insère simplément des emprunts négatifs
+     */
+    public function actionListeremboursements()
+    {
+        $emprunt = new Emprunt();
+
+        //Liste des enseignants
+        $enseignants = Yii::$app->db->createCommand("SELECT id, username FROM user")->queryAll();
+
+        // Jointure des tables enseignants et epargnes
+        $post = Yii::$app->db->createCommand("SELECT * FROM enseignant JOIN emprunt ON idenseignant=enseignant_idenseignant ORDER BY nom ASC;")->queryAll();
+
+        // Représente le formulaire de remboursement
+        $remboursementForm = new RemboursementForm();
+
+        // Liste des emprunteurs
+        $listeEmprunteurs = Yii::$app->db->createCommand("SELECT id, username, sum(montant) as montant , session, interet, databutoir FROM user JOIN emprunt ON id=enseignant_idenseignant GROUP BY username ORDER BY username ASC ;")->queryAll();
+
+        // Si le formulaire est validé alors
+        if($remboursementForm->load(Yii::$app->request->post()) && $remboursementForm->validate())
+        {
+            $dateButoir = Yii::$app->db->createCommand("SELECT ADDDATE('" . $remboursementForm->session . "',interval 3 month) as datebutoir")->queryOne()["datebutoir"];
+            $emprunt->montant = -1 * $remboursementForm->montant;
+            $emprunt->session = $remboursementForm->session;
+            if($_SERVER["REQUEST_METHOD"] == "POST")
+                $emprunt->enseignant_idenseignant = $_POST["select"];
+
+            $emprunt->interet = 0.01;
+            $emprunt->databutoir = $dateButoir;
+            $emprunt->save();
+            $this->refresh();
+        }
+        return $this->render('listeremboursements', ['post' => $post,
+                                     'remboursementForm' => $remboursementForm,
+                                    'listeEmprunteurs' => $listeEmprunteurs,
+                                    'enseignants' => $enseignants]);
+    }
+
+    /**
+     * Redirige vers la page des fonds sociaux
+     */
+
+    public function actionFondsocial()
+    {
+        $fondsocial = new Fondsocial();
+        $retraitFondForm = new RetraitFondForm();
+
+        $totalfonds = Yii::$app->db->createCommand("SELECT sum(montant) as montant FROM fondsocial ")->queryOne()["montant"];
+        return $this->render('fondsocial', [
+            "totalfonds" => $totalfonds,
+        ]);
+    }
+
+}

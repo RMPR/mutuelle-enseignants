@@ -11,6 +11,11 @@ namespace app\models;
 
 use yii\base\Model;
 
+/**
+ * Class AjoutEpargneForm
+ * @package app\models
+ * Représente le formulaire d'ajout d'une épargne
+ */
 class AjoutEpargneForm extends Model
 {
     public $nom_a;
@@ -25,10 +30,10 @@ class AjoutEpargneForm extends Model
         return [
             ['montant_a', 'number', 'message' => 'Le montant doit être un nombre'],
             ['montant_a', 'default', 'value' => 0],
-            ['montant_a', 'required'],
+            ['montant_a', 'required','message' => "Vous n'avez pas entré de montant"],
             ['montant_a', 'compare', 'compareValue' => 0, 'operator' => '>=', 'type' => 'number', 'message' => 'Vous avez entré un montant négatif'],
             ['session_a', 'string', 'min' => 4],
-            ['session_a', 'required']
+            ['session_a', 'required', 'message' =>  "Vous n'avez pas entré de session"]
         ];
     }
 }

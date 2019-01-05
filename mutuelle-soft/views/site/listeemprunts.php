@@ -9,50 +9,82 @@ use yii\widgets\LinkPager;
 
 Pjax::begin();
 ?>
+<?php
+$script = <<< JS
 
+    $(function()
+    {
+        decouvert = false;
+        $("div#form-pop-emp").hide();
+        $('#ajoutempr').bind('click', function(){
+            if(!decouvert)
+            {
+                $("div#form-pop-emp").show("slow");
+                $("span#symbol").removeClass("glyphicon-plus").addClass("glyphicon-minus");
+                decouvert = true;
+            }    
+            else
+            {
+                $("div#form-pop-emp").hide("slow");
+                $("span#symbol").removeClass("glyphicon-minus").addClass("glyphicon-plus");
+                decouvert = false;
+            }    
+        })
+    })
 
-<div class="container col-lg-8 col-md-8 form-pop-epr">
+JS;
+$this->registerJs($script);
+?>
+
+<div class='succesajoutemp'>
+    <?php
+    if(Yii::$app->session->hasFlash("succesajoutemp"))
+        echo "<div class='alert alert-success '>" . Yii::$app->session->getFlash("succesajoutemp") . "</div>";
+    ?>
+</div>
+
+<div class="container-fluid text-left">
+    <button class="btn bouton_ajout_epr" id="ajoutempr">
+        <span class="glyphicon glyphicon-plus" id="symbol"></span>
+        Ajouter un emprunt
+    </button>
+</div>
+
+<div class="container col-lg-8 col-lg-push-1 col-md-8 form-pop-epr" id="form-pop-emp">
     <legend class="row label_ajout_epr text-center">Ajouter un emprunt</legend>
     <?php $form = ActiveForm::begin(); ?>
-    <div class="row">
         <div class="form-group">
-            <label for="nom_ajout_epr" class="col-lg-2 col-md-2">Nom</label>
-            <div class="col-lg-6">
-                <!--                        <input type="text" name="nom_ajout_epr" class="form-control nom_ajout_epr" placeholder="Entrez votre nom"/>-->
-
-<!--                -->
+            <label  class="col-lg-2 col-md-2">Nom</label>
                 <select class="form-control" name="select">
                 <?php
 
                     foreach ($enseignants as $enseignant)
-                        echo '<option value="' . $enseignant->idenseignant . '">' . $enseignant->nom . ' ' .$enseignant->prenom . '</option>';
-                    echo '';
+                        echo '<option value="' . $enseignant["id"] . '">' . $enseignant["username"] . '</option>';
 
                 ?>
                  </select>
-            </div>
         </div>
-    </div>
-    <div class="row">
+
         <div class="form-group">
             <label for="montant_ajout_epr" class="col-lg-2 col-md-2">Montant</label>
-            <div class="col-lg-6">
                 <!--                        <input type="text" name="montant_ajout_epr" class="form-control montant_ajout_epr" placeholder="Entrez le montant"/>-->
                 <?= $form->field($ajoutEmpruntForm, 'montant_a')->input("text", ["placeholder" => "Entrez le montant",
                     "class" => "form-control montant_ajout_epr"]) ->label("")?>
-            </div>
+
         </div>
-    </div>
-    <div class="row">
+
         <div class="form-group">
-            <label for="session_ajout_epr" class="col-lg-2 col-md-2">Session</label>
-            <div class="col-lg-6">
+            <label  class="col-lg-2 col-md-2">Session</label>
                 <!--                        <input type="text" name="session_ajout_epr" class="form-control session_ajout_epr" placeholder="Entrez la date de la session"/>-->
-                <?= $form->field($ajoutEmpruntForm, 'session_a')->input("text", ["placeholder" => "Entrez la date de la session",
-                    "class" => "form-control session_ajout_epr",]) -> label("")?>
-            </div>
+                <?=$form->field($ajoutEmpruntForm, 'session_a')->widget(\yii\jui\DatePicker::className(), [
+                    //'language' => 'ru',
+                    'dateFormat' => 'yyyy-MM-dd',
+                    'options' => ['class' => 'form-control session_ajout_epr',
+                        'placeholder' => 'Choisir la session'
+                    ]
+                ])->label(""); ?>
         </div>
-    </div>
+
     <div class="form-group">
         <input type="submit" value="Ajouter" class="btn col-lg-offset-6 bouton_ajout_epr">
     </div>
@@ -77,8 +109,8 @@ Pjax::begin();
                 foreach ($listeEmprunteurs as $emprunteur)
                 {
                     echo "<tr>
-                            <td>".  $emprunteur['idenseignant'] . "</td>
-                            <td>".  $emprunteur['nom'] . ' '. $emprunteur['prenom']."</td>
+                            <td>".  $emprunteur['id'] . "</td>
+                            <td>".  $emprunteur['username']."</td>
                             <td>".  $emprunteur['montant']."</td>
                             <td>".  $emprunteur['session']."</td>
                             <td>".  $emprunteur['interet']."</td>
