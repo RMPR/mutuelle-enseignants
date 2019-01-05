@@ -77,7 +77,7 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays homepage.
+     * Affiche la page d'accueil du site web
      *
      * @return string
      */
@@ -87,7 +87,8 @@ class SiteController extends Controller
     }
 
     /**
-     * Login action.
+     * Affiche la page d'authentification qui va permettre aux enseignants
+     *  de se connecter pour avoir acces aux fonctionnalites offertes par l'application web.
      *
      * @return Response|string
      */
@@ -109,7 +110,7 @@ class SiteController extends Controller
     }
 
     /**
-     * Logout action.
+     * Le bouton de deconnexion permet aux enseignants de se deconnecter de leurs comptes.
      *
      * @return Response
      */
