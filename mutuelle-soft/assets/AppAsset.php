@@ -25,21 +25,14 @@ class AppAsset extends AssetBundle
         'css/epargnes.css',
         'css/remboursement.css',
         'css/emprunts.css',
-        'css/bootstrap.min.css',
-        'css/font-awesome.css',
-        'css/mdbpro.css'
     ];
     public $js = [
         'js/epargnes.js',
-        'js/compiled.min.js',
         'js/main.js',
-        'js/popper.min.js',
-        'js/bootstrap.min.js',
-        'js/jquery-3.3.1.min.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
-        // 'yii\bootstrap\BootstrapAsset',
+        'yii\bootstrap\BootstrapAsset',
     ];
 
 }
